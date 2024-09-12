@@ -10,7 +10,25 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			
+			if (arr.length < 2) {
+				return -Infinity;
+			}
+			let max = -Infinity;
+			let secondmax = -Infinity;
+			for (let i = 0; i < arr.length; i++) {
+				let num = parseFloat(arr[i]);
+				if (num > max) {
+					secondmax = max;
+					max = num;
+				} else if (num > secondmax && num < max) {
+					secondmax = num;
+				}
+			}
+			if (secondMax === -Infinity) {
+				return -Infinity;
+			} else {
+				return secondMax;
+			}
 		}
 
 		function Main() {
